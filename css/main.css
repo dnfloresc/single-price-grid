@@ -32,7 +32,6 @@ h2{
   align-items: center;
   box-sizing: border-box;
   box-shadow: 3px 3px 10px #98a6bd;
-
 }
 
 
@@ -57,7 +56,6 @@ h2{
 .main-info p{
   line-height: 1.5em;
 }
-
 
 
 .price-info{
@@ -97,7 +95,6 @@ button{
   box-shadow: 1px 1px 10px #98a6bd;
   cursor: pointer;
 }
-
 
 
 .highlight-info{
