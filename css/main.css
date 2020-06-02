@@ -2,11 +2,18 @@
   --normal-font: 16px;
   --box: 0 0 1px black;
   --spacing: 35px 50px;
+  --primary-Cyan: #2ab2af;
+  --primary-Yellow: #c0df34;
+  --neutral-LightG: #e5eff5;
+  --neutral-GrayishB: #98a6bd;
 }
 
-body{
-  width: 1440px;
-  display: block;
+html, body{
+  display: grid;
+  grid-template-rows: 1fr min-content;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
   font-family: 'Karla', sans-serif;
   background-color: #e5eff5;
   margin: 0;
@@ -19,31 +26,32 @@ h2{
 
 .container{
   display: grid;
+  max-width: 800px;
   grid-template-columns: repeat(2, 1fr);
-  width: 800px;
-  margin: 10% auto;
-  justify-content: center;
-  align-content: center;
+  grid-template-areas: "info info" "price highlight";
+  align-items: center;
   box-sizing: border-box;
   box-shadow: 3px 3px 10px #98a6bd;
-}
 
+}
 
 
 .main-info{
-  grid-column: 1 / span 2;
+  grid-area: info; 
   padding: var(--spacing);
-  color: #98a6bd;
+  color: var(--neutral-GrayishB);
   background-color: white;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .main-info h1{
-  color: #2ab2af;
+  color: var(--primary-Cyan);
   font-size: 1.6em;
 }
 
 .main-info h2{
-  color: #c0df34;
+  color: var(--primary-Yellow);
 }
 
 .main-info p{
@@ -53,10 +61,12 @@ h2{
 
 
 .price-info{
-  grid-column: 1;
+  grid-area: price;
   padding: var(--spacing);
-  background-color: #2ab2af;
-  color: #e5eff5;
+  background-color: var(--primary-Cyan);
+  color: var(--neutral-LightG);
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .price-info span{
@@ -78,8 +88,8 @@ button{
   width: 100%;
   box-sizing: border-box;
   padding: 14px;
-  background-color: #c0df34;
-  color: #e5eff5;
+  background-color: var(--primary-Yellow);
+  color:var(--neutral-LightG);
   font-size: var(--normal-font);
   border-radius: 5px;
   border: none;
@@ -91,10 +101,12 @@ button{
 
 
 .highlight-info{
-  grid-column: 2;
+  grid-area: highlight;
   padding: var(--spacing);
   background-color: #44CCC9;
-  color: #e5eff5;
+  color: var(--neutral-LightG);
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .highlight-info ul{
@@ -109,32 +121,23 @@ button{
   text-align: center; 
 }
 .attribution a { 
-  color: #2ab2af; 
+  color: var(--primary-Cyan); 
 }
 
 
 @media screen and (max-width: 375px){
-  body{
-    width: 375px;
-  }
-
-  .container{
+   .container{
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, 300px);
+    grid-template-areas: "info" "price" "highlight";
+    width: 350px;
+    margin: 0 auto;
   }
 
-  .main-info{
-    grid-column: 1;
-    grid-row: 1;
+  .main-info, .price-info, .highlight-info{
+    padding: 10px 30px;
   }
 
-  .price-info{
-    grid-column: 1;
-    grid-row: 2;
-  }
-
-  .highlight-info{
-    grid-column: 1;
-    grid-row: 3;
+  button{
+    margin: 20px 0;
   }
 }
